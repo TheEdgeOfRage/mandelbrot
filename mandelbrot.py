@@ -402,8 +402,8 @@ def new_monochrome():
 def main(screen):
 	rows, cols = screen.getmaxyx()
 	rows -= 1
-	#  new_monochrome()
-	init_colors()
+	new_monochrome()
+	#  init_colors()
 	char = 0
 	while True:
 		matrix = calculate_set(cols, rows)
