@@ -73,16 +73,16 @@ def handle_keyboard(char):
 	if char == 113:
 		return True
 	elif char == 258:  # Down
-		Y_MID += Y_SCALE * (1 / (2 ** (ZOOM_LEVEL + 2)))
+		Y_MID += Y_SCALE * (1 / (2 ** (ZOOM_LEVEL + 1)))
 		return False
 	elif char == 259:  # Up
-		Y_MID -= Y_SCALE * (1 / (2 ** (ZOOM_LEVEL + 2)))
+		Y_MID -= Y_SCALE * (1 / (2 ** (ZOOM_LEVEL + 1)))
 		return False
 	elif char == 260:  # Left
-		X_MID -= X_SCALE * (1 / (2 ** (ZOOM_LEVEL + 2)))
+		X_MID -= X_SCALE * (1 / (2 ** (ZOOM_LEVEL + 1)))
 		return False
 	elif char == 261:  # Right
-		X_MID += X_SCALE * (1 / (2 ** (ZOOM_LEVEL + 2)))
+		X_MID += X_SCALE * (1 / (2 ** (ZOOM_LEVEL + 1)))
 		return False
 	elif char == 40:  # Zoom out
 		if ZOOM_LEVEL > 0:
