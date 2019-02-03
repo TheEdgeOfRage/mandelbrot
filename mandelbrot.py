@@ -36,6 +36,12 @@ def get_points(cols, rows):
 def calculate_point(x, y):
 	global ITERATIONS
 	z = 0
+	p = (x - 0.25) ** 2 + y ** 2
+	if p * (p + (x - 0.25)) < 0.25 * (y ** 2):
+		return -1
+	if (x + 1) ** 2 + y ** 2 <= 0.0625:
+		return -1
+
 	for i in range(MAX_ITERS):
 		ITERATIONS += 1
 		z = z ** 2 + complex(x, y)
