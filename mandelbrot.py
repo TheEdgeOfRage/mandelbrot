@@ -61,6 +61,7 @@ def print_set(screen, cols, rows, matrix, char):
 				screen.addstr(i, j, ' ', curses.color_pair(1))
 			else:
 				color_index = (int(iteration) + 2) % COLOR_COUNT
+				color_index = 2 if color_index < 2 else color_index
 				screen.addstr(i, j, ' ', curses.color_pair(color_index))
 
 	screen.addstr(rows, 0, f'Iterations: {MAX_ITERS}, Zoom: {ZOOM_LEVEL}, Char: {char}', curses.color_pair(COLOR_COUNT))
@@ -103,7 +104,7 @@ def handle_keyboard(char):
 		MAX_ITERS += 1
 		return False
 	elif char == 45:  # Iterations down
-		MAX_ITERS -= 1
+		MAX_ITERS = 1 if MAX_ITERS == 1 else MAX_ITERS - 1
 		return False
 	elif char == 99:  # Toggle colors
 		if MONOCHROME:
