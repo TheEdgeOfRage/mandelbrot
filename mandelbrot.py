@@ -87,7 +87,7 @@ def handle_keyboard(char):
 	global MONOCHROME
 	global COLOR_COUNT
 
-	if char == 113:
+	if char == 113:  # Quit
 		return True
 	elif char == 258:  # Down
 		Y_MID += Y_SCALE * (1 / (2 ** (ZOOM_LEVEL + 1)))

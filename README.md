@@ -1,7 +1,7 @@
 # Mandelbrot
 A simple python script that draws an interactive mandelbrot set in the terminal
 
-![Mandelbrot](https://i.imgur.com/OfKPse8.png)
+![Mandelbrot](https://i.imgur.com/shZLyxK.png)
 
 ## Keybindings
 - Arrow keys - Move around
