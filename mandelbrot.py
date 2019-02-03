@@ -91,6 +91,9 @@ def handle_keyboard(char):
 	elif char == 41:  # Zoom in
 		ZOOM_LEVEL += 1
 		return False
+	elif char == 61:  # Zoom reset
+		ZOOM_LEVEL = 0
+		return False
 	elif char == 43:  # Iterations up
 		MAX_ITERS += 1
 		return False
