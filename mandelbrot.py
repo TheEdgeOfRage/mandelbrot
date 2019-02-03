@@ -13,6 +13,7 @@ import curses
 import colors
 
 MAX_ITERS = 100
+ITERATIONS = 0
 COLOR_COUNT = 101
 MONOCHROME = False
 ZOOM_LEVEL = 0
@@ -33,8 +34,10 @@ def get_points(cols, rows):
 
 
 def calculate_point(x, y):
+	global ITERATIONS
 	z = 0
 	for i in range(MAX_ITERS):
+		ITERATIONS += 1
 		z = z ** 2 + complex(x, y)
 		if abs(z) >= 2:
 			return i
@@ -43,6 +46,8 @@ def calculate_point(x, y):
 
 
 def calculate_set(cols, rows):
+	global ITERATIONS
+	ITERATIONS = 0
 	x, y = get_points(cols, rows)
 	matrix = np.zeros([rows, cols])
 	for i in range(rows):
@@ -64,7 +69,7 @@ def print_set(screen, cols, rows, matrix, char):
 				color_index = 2 if color_index < 2 else color_index
 				screen.addstr(i, j, ' ', curses.color_pair(color_index))
 
-	screen.addstr(rows, 0, f'Iterations: {MAX_ITERS}, Zoom: {ZOOM_LEVEL}, Char: {char}', curses.color_pair(COLOR_COUNT))
+	screen.addstr(rows, 0, f'Max Iterations: {MAX_ITERS}, Zoom: {ZOOM_LEVEL}, Iterations: {ITERATIONS}, Char: {char}', curses.color_pair(COLOR_COUNT))
 	screen.refresh()
 
 
